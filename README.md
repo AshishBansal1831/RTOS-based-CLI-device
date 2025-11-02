@@ -61,11 +61,12 @@ The `cpu_monitor` command prints FreeRTOS runtime statistics such as:
 
 >>>> cpu_monitor once
 
-Task       | CPU%   | Free Stack (words) |
-CLI Task   |   0.02 |               174 |
-IDLE       |  99.96 |               106 |
-Red Led T  |   0.00 |                58 |
-Orange Le  |   0.00 |                58 |
-Green Led  |   0.00 |                58 |
-Blue Led   |   0.00 |                58 |
-Setting T  |   0.00 |               407 |
+|Task       | CPU%   | Free Stack (words) |
+|----------|--------|--------------------|
+|CLI Task   |   0.02 |               174 |
+|IDLE       |  99.96 |               106 |
+|Red Led T  |   0.00 |                58 |
+|Orange Le  |   0.00 |                58 |
+|Green Led  |   0.00 |                58 |
+|Blue Led   |   0.00 |                58 |
+|Setting T  |   0.00 |               407 |
