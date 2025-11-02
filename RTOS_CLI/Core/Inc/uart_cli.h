@@ -25,10 +25,12 @@ typedef enum
 
 #define TOTAL_COMMANDS  ( sizeof(Command_Handlers) / sizeof(Command_Handlers[0]) )
 
+typedef void (*cmd_handler)(const char*);
+
 typedef struct cli
 {
     char* command;
-    void (*handler)(const char*);
+    cmd_handler handler;
     PRIVILAGE_LEVEL privilege_level;
     char* description;
 }CliStruct;

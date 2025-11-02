@@ -371,8 +371,8 @@ void cpu_monitor(const char* arguments)
 
         if (command_type == 2) // continuous
         {
-            cli_printf("\033[%dA\033[2K\r", total_tasks); // Move cursor up and clear line
             xQueueReceive(User_Uart_Queue, &received_char, 1000);
+            cli_printf("\033[%dA\033[2K\r", total_tasks); // Move cursor up and clear line
         }
 
     } while (command_type == 2 && received_char != ENTER);
@@ -418,14 +418,15 @@ void uart_settings(const char* Arguments)
         return;
     }
 
-
+    huart1.Init.BaudRate = NewBaudRate;
+    HAL_UART_Init(&huart1);
 }
 
 /* -- Handle Parsed Command -- */
 /* Compares `user_input` against registered commands and invokes the corresponding handler, passing any arguments. */
 static void command_handler(const char *user_input)
 {
-    if(*user_input == ENTER)
+    if(*user_input == '\0') // <! User just pressed enter without any input
     {
         return;
     }

@@ -5,7 +5,7 @@ OpenDocument="stm32f4xx_ll_usart.h", FilePath="D:/practice/Projects/RTOS_CLI/Dri
 OpenDocument="port.c", FilePath="D:/practice/Projects/RTOS_CLI/Middleware/FreeRTOS/portable/GCC/ARM_CM4F/port.c", Line=266
 OpenDocument="startup_stm32f407vgtx.s", FilePath="D:/practice/Projects/RTOS_CLI/Core/Startup/startup_stm32f407vgtx.s", Line=52
 OpenDocument="tasks.c", FilePath="D:/practice/Projects/RTOS_CLI/Middleware/FreeRTOS/tasks.c", Line=3682
-OpenDocument="main.c", FilePath="D:/practice/Projects/RTOS_CLI/Core/Src/main.c", Line=76
+OpenDocument="main.c", FilePath="D:/practice/Projects/RTOS_CLI/Core/Src/main.c", Line=62
 OpenToolbar="Debug", Floating=0, x=0, y=0
 OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=0, w=300, h=592, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
 OpenWindow="Memory 1", DockArea=BOTTOM, x=1, y=0, w=980, h=326, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, EditorAddress=0x60

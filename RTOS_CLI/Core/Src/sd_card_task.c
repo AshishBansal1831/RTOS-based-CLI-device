@@ -4,7 +4,7 @@
  *  Created on: May 30, 2025
  *      Author: ashish
  */
-
+#if 0
 #include "main.h"
 #include "spi.h"
 #include "gpio.h"
@@ -169,3 +169,5 @@ sdcard_status_t SD_WriteBlock(uint32_t blockAddr, const uint8_t *buffer) {
 	SPI_SendByte(SD_DUMMY_BYTE);
 	return SDCARD_OK;
 }
+
+#endif

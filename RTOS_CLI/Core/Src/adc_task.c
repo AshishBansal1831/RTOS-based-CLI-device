@@ -4,7 +4,7 @@
  *  Created on: Jun 9, 2025
  *      Author: Ashish Bansal
  */
-
+#if 0
 /* -- Standard Library -- */
 #include <stdio.h>
 #include <string.h>
@@ -66,3 +66,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     latest_conv_val = HAL_ADC_GetValue(hadc);
     xTaskNotify(Adc_Task_Handle, DEF_NOTIFICATION_VAL, eNoAction);
 }
+
+
+#endif

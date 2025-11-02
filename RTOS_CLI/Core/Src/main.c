@@ -18,10 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "adc.h"
-#include "dma.h"
 #include "rng.h"
-#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -59,7 +56,7 @@
 /* USER CODE BEGIN PV */
 volatile xQueueHandle User_Uart_Queue = NULL;
 extern volatile xQueueHandle SettingsQueue;
-volatile xQueueHandle Adc_to_cdc_queue;
+//volatile xQueueHandle Adc_to_cdc_queue;
 xTaskHandle Adc_Task_Handle = NULL;
 
 /* USER CODE END PV */
@@ -103,11 +100,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
-  MX_SPI1_Init();
   MX_USART3_UART_Init();
   MX_RNG_Init();
-  MX_ADC1_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
@@ -118,11 +112,11 @@ int main(void)
 
     User_Uart_Queue = xQueueCreate(50, sizeof(char));
     SettingsQueue = xQueueCreate(10, sizeof(Settings));
-    Adc_to_cdc_queue = xQueueCreate(50, sizeof(uint16_t));
+//    Adc_to_cdc_queue = xQueueCreate(50, sizeof(uint16_t));
 
     assert_param(xTaskCreate(Cli_Task, "CLI Task", 512, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
     assert_param(xTaskCreate(setting_task, "Setting Task", 512, NULL, tskIDLE_PRIORITY + 3, NULL) == pdPASS);
-    assert_param(xTaskCreate(adc_task, "ADC Task", 512, NULL, tskIDLE_PRIORITY + 2, &Adc_Task_Handle) == pdPASS);
+//    assert_param(xTaskCreate(adc_task, "ADC Task", 512, NULL, tskIDLE_PRIORITY + 2, &Adc_Task_Handle) == pdPASS);
 
     create_led_tasks();
     HAL_TIM_Base_Start(&htim2); // This timer is used for CPU Monitoring Live RUN Time Use
