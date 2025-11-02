@@ -46,8 +46,9 @@ This project demonstrates task management, UART-based command interaction, and r
 | Command | Description | Arguments | Example |
 |----------|--------------|------------|----------|
 | **list** | Lists all available commands | None | `list` |
-| **uart** | Configure UART parameters | `<baud> <parity> <stop>` | `uart 115200 N 1` |
+| **uart** | Configure UART parameters | `<baud>` | `uart 115200 ` |
 | **set_blink_rate** | Set LED blink interval (ms) | `<rate_ms>` | `set_blink_rate 500` |
+| **set_blink_rate** | Set LED blink interval (ms) | `<led colour> <rate_ms>` | `set_blink_rate blue 500` |
 | **rand_data** | Generate and print random data | `<length>` | `rand_data 16` |
 | **update** | Enter firmware update mode *(not implemented)* | None | `update` |
 | **cpu_monitor** | Show CPU usage and task stats | None | `cpu_monitor` |
