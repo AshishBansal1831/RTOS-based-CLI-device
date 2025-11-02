@@ -13,7 +13,6 @@ This project demonstrates task management, UART-based command interaction, and r
 - 🎲 **Random data generation task**
 - 🧮 **CPU usage monitoring** via SystemView and runtime stats
 - ⚙️ **Modular command registration system** for easy extension
-- 🔋 **Efficient RTOS design** — >99% Idle Task (event-driven, low CPU usage)
 
 ---
 
@@ -22,7 +21,7 @@ This project demonstrates task management, UART-based command interaction, and r
 | Peripheral | Description |
 |-------------|-------------|
 | MCU | STM32F407VGT6 Discovery |
-| UART | USART2 (TX: PA2, RX: PA3) |
+| UART | USART1 (TX: PB6, RX: PA10) |
 | LED | Onboard LEDs (PD12–PD15) |
 | Debugger | ST-Link V2 |
 | Toolchain | STM32CubeIDE / SEGGER SystemView |
