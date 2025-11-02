@@ -4,6 +4,8 @@
  *  Created on: Jun 1, 2025
  *      Author: Ashish Bansal
  */
+#include <usart.h>
+
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "tasks.h"
@@ -40,7 +42,11 @@ void setting_task(void*)
                 break;
 
             case UART_CONFIG:
+                uint32_t NewBaudRate = 0;
+                memcpy(&NewBaudRate, queue_settings.Buffer, sizeof(NewBaudRate));
 
+                huart1.Init.BaudRate = NewBaudRate;
+                HAL_UART_Init(&huart1);
                 break;
 
             case ADC_CONFIG:

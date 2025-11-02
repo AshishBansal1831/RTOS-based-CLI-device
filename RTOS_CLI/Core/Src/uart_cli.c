@@ -418,8 +418,10 @@ void uart_settings(const char* Arguments)
         return;
     }
 
-    huart1.Init.BaudRate = NewBaudRate;
-    HAL_UART_Init(&huart1);
+    Settings uart_settings = { .config_id = UART_CONFIG};
+    memcpy(&uart_settings.Buffer, &NewBaudRate, sizeof(NewBaudRate ));
+
+    xQueueSend(SettingsQueue, &uart_settings, portMAX_DELAY);
 }
 
 /* -- Handle Parsed Command -- */
