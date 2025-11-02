@@ -59,7 +59,7 @@ This project demonstrates task management, UART-based command interaction, and r
 
 The `cpu_monitor` command prints FreeRTOS runtime statistics such as:
 
->>>> cpu_monitor once
+`>>>> cpu_monitor once`
 
 |Task       | CPU%   | Free Stack (words) |
 |----------|--------|--------------------|
