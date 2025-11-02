@@ -22,6 +22,7 @@ This project demonstrates task management, UART-based command interaction, and r
 |-------------|-------------|
 | MCU | STM32F407VGT6 Discovery |
 | UART | USART1 (TX: PB6, RX: PA10) |
+| UART | Baudrate - 115200 |
 | LED | Onboard LEDs (PD12–PD15) |
 | Debugger | ST-Link V2 |
 | Toolchain | STM32CubeIDE / SEGGER SystemView |
@@ -50,7 +51,7 @@ This project demonstrates task management, UART-based command interaction, and r
 | **set_blink_rate** | Set LED blink interval (ms) | `<led colour> <rate_ms>` | `set_blink_rate blue 500` |
 | **rand_data** | Generate and print random data | `<length>` | `rand_data 16` |
 | **update** | Enter firmware update mode *(not implemented)* | None | `update` |
-| **cpu_monitor** | Show CPU usage and task stats | None | `cpu_monitor` |
+| **cpu_monitor** | Show CPU usage and task stats | `<once or continue>` | `cpu_monitor` |
 
 ---
 
@@ -58,3 +59,13 @@ This project demonstrates task management, UART-based command interaction, and r
 
 The `cpu_monitor` command prints FreeRTOS runtime statistics such as:
 
+cpu_monitor once
+Task       | CPU%   | Free Stack (words) |
+------------------------------------------------------
+CLI Task   |   0.02 |               174 |
+IDLE       |  99.96 |               106 |
+Red Led T  |   0.00 |                58 |
+Orange Le  |   0.00 |                58 |
+Green Led  |   0.00 |                58 |
+Blue Led   |   0.00 |                58 |
+Setting T  |   0.00 |               407 |
