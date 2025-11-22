@@ -1,7 +1,16 @@
 # STM32 FreeRTOS CLI Project
 
-A simple yet powerful **Command Line Interface (CLI)** running on **STM32F407** using **FreeRTOS**.  
-This project demonstrates task management, UART-based command interaction, and real-time performance analysis using SEGGER SystemView.
+## Project Overview
+
+A modular Command Line Interface (CLI) firmware framework built on STM32F407 using FreeRTOS.
+Designed to demonstrate real-time task management, non-blocking communication, runtime diagnostics, and clean embedded software architecture.
+
+This project highlights skills essential for embedded roles:
+- RTOS-based design
+- Driver abstraction
+- Modular command parsing
+- Debugging with SystemView
+- CPU profiling using FreeRTOS runtime stats
 
 ---
 
@@ -13,6 +22,42 @@ This project demonstrates task management, UART-based command interaction, and r
 - 🎲 **Random data generation task**
 - 🧮 **CPU usage monitoring** via SystemView and runtime stats
 - ⚙️ **Modular command registration system** for easy extension
+
+---
+
+## 🧱 Architecture Overview
+
+📌 High-Level Design
+```
+UART ISR → RX Queue → CLI Task → Command Dispatcher → Subsystem (LED, RNG, CPU)
+```
+
+📁 Project Structure
+
+```
+/Core
+ ├── app/
+ │     ├── cli/          # CLI task, parser, command registry
+ │     ├── tasks/        # LED task, RNG task, CPU monitor task
+ │     └── utils/        # Helpers, message formatting
+ ├── drivers/
+ │     ├── uart/         # Non-blocking UART driver using IRQ
+ │     ├── led/          # LED abstraction layer
+ │     └── rng/          # Random data generator
+ └── freertos/
+       ├── freertos.c    # Task creation, hooks, timers
+       └── stats.c       # Runtime CPU statistics provider
+```
+
+🧠 Key Embedded Concepts Demonstrated
+
+- Non-blocking UART RX using interrupts + FreeRTOS queues
+- Task-safe command execution
+- Real-time scheduling with vTaskDelay, priorities, and tick hooks
+- Custom CLI engine with command dispatch table
+- Accurate CPU load measurement using run-time stats timer
+- Debugging with SEGGER SystemView timeline
+- Clean modular code separation for scalability
 
 ---
 
@@ -70,3 +115,5 @@ The `cpu_monitor` command prints FreeRTOS runtime statistics such as:
 |Green Led  |   0.00 |                58 |
 |Blue Led   |   0.00 |                58 |
 |Setting T  |   0.00 |               407 |
+
+---
